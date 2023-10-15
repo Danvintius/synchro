@@ -4,14 +4,22 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        String r = generateRoute("RLRFL", 100);
-        int result = 0;
-        for (int i = 0; i < r.length(); i++) {
-            if (r.equals('R')) {
-                result++;
+        String[] routes = new String[1000];
+        List<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < routes.length; i++) {
+            routes[i] = generateRoute("RLRFL", 100);
+
+            char[] arr = routes[i].toCharArray();
+            int result = 0;
+            for (int j = 0; i < arr.length - 1; j++) {
+                if (arr[j] == 'R') {
+                    result++;
+                }
             }
+            System.out.println(routes);
+            System.out.println(result);
         }
-        System.out.println(result);
+
     }
 
     public static String generateRoute(String letters, int length) {
