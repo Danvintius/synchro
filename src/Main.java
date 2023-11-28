@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
 
             char[] arr = routes[i].toCharArray();
             int result = 0;
-            for (int j = 0; i < arr.length - 1; j++) {
+            for (int j = 0; j < arr.length - 1; j++) {
                 if (arr[j] == 'R') {
                     result++;
                 }
@@ -21,6 +22,8 @@ public class Main {
         }
 
     }
+
+    public static final Map<Integer, Integer> sizeToFreq;
 
     public static String generateRoute(String letters, int length) {
         Random random = new Random();
