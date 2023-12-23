@@ -9,14 +9,18 @@ public class Main {
         List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < routes.length; i++) {
             routes[i] = generateRoute("RLRFL", 100);
+        }
 
-            char[] arr = routes[i].toCharArray();
-            int result = 0;
-            for (int j = 0; j < arr.length - 1; j++) {
-                if (arr[j] == 'R') {
-                    result++;
+            for (int i = 0; i < routes.length; i++) {
+                Runnable logic = () -> {
+                    char[] arr = routes[i].toCharArray();
+                    int result = 0;
+                    for (int j = 0; j < arr.length - 1; j++) {
+                        if (arr[j] == 'R') {
+                            result++;
+                        }
+                    }
                 }
-            }
             System.out.println(routes);
             System.out.println(result);
         }
